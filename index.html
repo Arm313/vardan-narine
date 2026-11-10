@@ -1,837 +1,1102 @@
 <!DOCTYPE html>
 <html lang="hy">
+
 <head>
-<meta charset="UTF-8" />
-<meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
-<meta name="theme-color" content="#fdf9f3" />
-<title>💍 Հարսանեկան Հրավիրատոմս</title>
-<link rel="preconnect" href="https://fonts.googleapis.com">
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap" rel="stylesheet">
-<style>
-  :root {
-    --sage: #8a9a7b;
-    --sage-deep: #6b7d5c;
-    --sage-light: #b8c4a8;
-    --blush: #e8b4b8;
-    --blush-deep: #d4949a;
-    --blush-light: #f5d8da;
-    --cream: #fdf9f3;
-    --cream-warm: #f7efe3;
-    --ink: #3d3a32;
-    --soft: #8a8378;
-    --gold: #c4a35a;
-    --gold-deep: #a8874a;
-    --shadow: 0 24px 70px rgba(107,125,92,0.14);
-    --shadow-hover: 0 32px 90px rgba(107,125,92,0.24);
-  }
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover" />
+  <meta name="theme-color" content="#fdf9f3" />
+  <title>💍 Հարսանեկան Հրավիրատոմս</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;0,700;1,400&family=Great+Vibes&family=Montserrat:wght@300;400;500;600&display=swap"
+    rel="stylesheet">
+  <style>
+    :root {
+      --sage: #8a9a7b;
+      --sage-deep: #6b7d5c;
+      --sage-light: #b8c4a8;
+      --blush: #e8b4b8;
+      --blush-deep: #d4949a;
+      --blush-light: #f5d8da;
+      --cream: #fdf9f3;
+      --cream-warm: #f7efe3;
+      --ink: #3d3a32;
+      --soft: #8a8378;
+      --gold: #c4a35a;
+      --gold-deep: #a8874a;
+      --shadow: 0 24px 70px rgba(107, 125, 92, 0.14);
+      --shadow-hover: 0 32px 90px rgba(107, 125, 92, 0.24);
+    }
 
-  * { margin: 0; padding: 0; box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-  html { scroll-behavior: smooth; -webkit-text-size-adjust: 100%; }
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      -webkit-tap-highlight-color: transparent;
+    }
 
-  body {
-    font-family: 'Montserrat', sans-serif;
-    background: var(--cream);
-    color: var(--ink);
-    overflow-x: hidden;
-    position: relative;
-    min-height: 100vh;
-    min-height: 100dvh;
-  }
+    html {
+      scroll-behavior: smooth;
+      -webkit-text-size-adjust: 100%;
+    }
 
-  body::before {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background:
-      radial-gradient(ellipse at 10% 10%, rgba(232,180,184,0.13) 0%, transparent 50%),
-      radial-gradient(ellipse at 90% 90%, rgba(138,154,123,0.13) 0%, transparent 50%),
-      radial-gradient(ellipse at 50% 50%, rgba(253,249,243,0.6) 0%, transparent 70%);
-    pointer-events: none;
-    z-index: -2;
-  }
-  body::after {
-    content: "";
-    position: fixed;
-    inset: 0;
-    background-image: radial-gradient(circle, rgba(196,163,90,0.12) 1px, transparent 1px);
-    background-size: 28px 28px;
-    pointer-events: none;
-    z-index: -1;
-    opacity: 0.4;
-  }
+    body {
+      font-family: 'Montserrat', sans-serif;
+      background: var(--cream);
+      color: var(--ink);
+      overflow-x: hidden;
+      position: relative;
+      min-height: 100vh;
+      min-height: 100dvh;
+    }
 
-  /* ===== ՀԵՐՈՍ ===== */
-  .hero {
-    min-height: 100vh;
-    min-height: 100dvh;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    padding: 24px 16px;
-    position: relative;
-  }
+    body::before {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background:
+        radial-gradient(ellipse at 10% 10%, rgba(232, 180, 184, 0.13) 0%, transparent 50%),
+        radial-gradient(ellipse at 90% 90%, rgba(138, 154, 123, 0.13) 0%, transparent 50%),
+        radial-gradient(ellipse at 50% 50%, rgba(253, 249, 243, 0.6) 0%, transparent 70%);
+      pointer-events: none;
+      z-index: -2;
+    }
 
-  .hero-art {
-    position: relative;
-    width: 100%;
-    max-width: 480px;
-    aspect-ratio: 3 / 4;
-    border-radius: 24px;
-    overflow: hidden;
-    box-shadow:
-      0 30px 80px rgba(107,125,92,0.28),
-      0 0 0 1px rgba(196,163,90,0.3),
-      0 0 0 8px rgba(253,249,243,0.9),
-      0 0 0 9px rgba(196,163,90,0.25);
-    background:
-      radial-gradient(circle at 30% 20%, rgba(245,216,218,0.9) 0%, transparent 50%),
-      radial-gradient(circle at 75% 80%, rgba(184,196,168,0.85) 0%, transparent 55%),
-      radial-gradient(circle at 50% 50%, #fdf9f3 0%, #f7efe3 100%);
-    animation: heroFade 1.4s ease both;
-  }
-  @keyframes heroFade {
-    from { opacity: 0; transform: scale(0.96) translateY(20px); }
-    to   { opacity: 1; transform: scale(1) translateY(0); }
-  }
+    body::after {
+      content: "";
+      position: fixed;
+      inset: 0;
+      background-image: radial-gradient(circle, rgba(196, 163, 90, 0.12) 1px, transparent 1px);
+      background-size: 28px 28px;
+      pointer-events: none;
+      z-index: -1;
+      opacity: 0.4;
+    }
 
-  .hero-art::before {
-    content: "";
-    position: absolute;
-    top: -80px; right: -80px;
-    width: 240px; height: 240px;
-    border-radius: 50%;
-    border: 1px solid rgba(196,163,90,0.3);
-    background: radial-gradient(circle, rgba(232,180,184,0.2) 0%, transparent 70%);
-    pointer-events: none;
-  }
-  .hero-art::after {
-    content: "";
-    position: absolute;
-    bottom: -90px; left: -90px;
-    width: 260px; height: 260px;
-    border-radius: 50%;
-    border: 1px solid rgba(196,163,90,0.3);
-    background: radial-gradient(circle, rgba(138,154,123,0.18) 0%, transparent 70%);
-    pointer-events: none;
-  }
+    /* ===== ՀԵՐՈՍ ===== */
+    .hero {
+      min-height: 100vh;
+      min-height: 100dvh;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 24px 25px;
+      position: relative;
+    }
 
-  .hero-leaves {
-    position: absolute;
-    inset: 0;
-    pointer-events: none;
-    z-index: 1;
-  }
-  .hero-leaves svg {
-    position: absolute;
-    width: 120px; height: 120px;
-    color: var(--sage);
-    opacity: 0.55;
-  }
-  .hero-leaves .leaf-tl { top: 16px; left: 16px; }
-  .hero-leaves .leaf-br { bottom: 16px; right: 16px; transform: rotate(180deg); }
+    .hero-art {
+      position: relative;
+      width: 100%;
+      max-width: 480px;
+      aspect-ratio: 3 / 4;
+      border-radius: 24px;
+      overflow: hidden;
+      box-shadow:
+        0 30px 80px rgba(107, 125, 92, 0.28),
+        0 0 0 1px rgba(196, 163, 90, 0.3),
+        0 0 0 8px rgba(253, 249, 243, 0.9),
+        0 0 0 9px rgba(196, 163, 90, 0.25);
+      background:
+        radial-gradient(circle at 30% 20%, rgba(245, 216, 218, 0.9) 0%, transparent 50%),
+        radial-gradient(circle at 75% 80%, rgba(184, 196, 168, 0.85) 0%, transparent 55%),
+        radial-gradient(circle at 50% 50%, #fdf9f3 0%, #f7efe3 100%);
+      animation: heroFade 1.4s ease both;
+    }
 
-  .hero-art-inner {
-    position: absolute;
-    inset: 18px;
-    border: 1px solid rgba(196,163,90,0.45);
-    border-radius: 16px;
-    pointer-events: none;
-    z-index: 2;
-  }
-  .hero-art-inner::before {
-    content: "";
-    position: absolute;
-    inset: 6px;
-    border: 1px solid rgba(196,163,90,0.2);
-    border-radius: 12px;
-  }
+    @keyframes heroFade {
+      from {
+        opacity: 0;
+        transform: scale(0.96) translateY(20px);
+      }
 
-  .art-corner {
-    position: absolute;
-    width: 30px; height: 30px;
-    color: var(--gold);
-    z-index: 3;
-  }
-  .art-corner svg { width: 100%; height: 100%; }
-  .art-tl { top: 26px; left: 26px; }
-  .art-tr { top: 26px; right: 26px; transform: scaleX(-1); }
-  .art-bl { bottom: 26px; left: 26px; transform: scaleY(-1); }
-  .art-br { bottom: 26px; right: 26px; transform: scale(-1); }
+      to {
+        opacity: 1;
+        transform: scale(1) translateY(0);
+      }
+    }
 
-  .hero-content {
-    position: relative;
-    z-index: 4;
-    height: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    padding: 50px 26px;
-  }
+    .hero-art::before {
+      content: "";
+      position: absolute;
+      top: -80px;
+      right: -80px;
+      width: 240px;
+      height: 240px;
+      border-radius: 50%;
+      border: 1px solid rgba(196, 163, 90, 0.3);
+      background: radial-gradient(circle, rgba(232, 180, 184, 0.2) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
-  .hero-ornament {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-bottom: 22px;
-  }
-  .hero-ornament .line {
-    width: 36px; height: 1px;
-    background: linear-gradient(to right, transparent, var(--gold), transparent);
-  }
-  .hero-ornament .leaf {
-    color: var(--gold);
-    font-size: 15px;
-  }
+    .hero-art::after {
+      content: "";
+      position: absolute;
+      bottom: -90px;
+      left: -90px;
+      width: 260px;
+      height: 260px;
+      border-radius: 50%;
+      border: 1px solid rgba(196, 163, 90, 0.3);
+      background: radial-gradient(circle, rgba(138, 154, 123, 0.18) 0%, transparent 70%);
+      pointer-events: none;
+    }
 
-  .hero-pre {
-    font-size: 10px;
-    letter-spacing: 6px;
-    text-transform: uppercase;
-    color: var(--sage-deep);
-    margin-bottom: 26px;
-    font-weight: 500;
-  }
+    .hero-leaves {
+      position: absolute;
+      inset: 0;
+      pointer-events: none;
+      z-index: 1;
+    }
 
-  .hero-names {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(44px, 13vw, 76px);
-    line-height: 1.05;
-    margin-bottom: 4px;
-    background: linear-gradient(135deg, var(--sage-deep) 0%, var(--gold) 50%, var(--sage-deep) 100%);
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    filter: drop-shadow(0 1px 1px rgba(255,255,255,0.8));
-  }
-  .hero-amp {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(22px, 5vw, 32px);
-    color: var(--blush-deep);
-    margin: 6px 0;
-    display: block;
-  }
+    .hero-leaves svg {
+      position: absolute;
+      width: 120px;
+      height: 120px;
+      color: var(--sage);
+      opacity: 0.55;
+    }
 
-  .hero-date {
-    margin-top: 30px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 14px;
-  }
-  .hero-date .part { text-align: center; }
-  .hero-date .num {
-    display: block;
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 600;
-    font-size: clamp(22px, 5vw, 30px);
-    color: var(--sage-deep);
-    line-height: 1;
-  }
-  .hero-date .lbl {
-    display: block;
-    font-size: 8px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--soft);
-    margin-top: 5px;
-  }
-  .hero-date .sep {
-    width: 1px; height: 26px;
-    background: linear-gradient(to bottom, transparent, var(--gold), transparent);
-  }
+    .hero-leaves .leaf-tl {
+      top: 16px;
+      left: 16px;
+    }
 
-  .scroll-hint {
-    position: absolute;
-    bottom: 22px;
-    left: 50%;
-    transform: translateX(-50%);
-    font-size: 10px;
-    letter-spacing: 4px;
-    text-transform: uppercase;
-    color: var(--sage-deep);
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 6px;
-    animation: bounce 2.2s infinite;
-    z-index: 5;
-  }
-  .scroll-hint::after {
-    content: "";
-    width: 1px; height: 18px;
-    background: linear-gradient(to bottom, var(--sage), transparent);
-  }
-  @keyframes bounce {
-    0%, 100% { transform: translateX(-50%) translateY(0); opacity: 0.65; }
-    50%      { transform: translateX(-50%) translateY(7px); opacity: 1; }
-  }
+    .hero-leaves .leaf-br {
+      bottom: 16px;
+      right: 16px;
+      transform: rotate(180deg);
+    }
 
-  /* ===== Ընդհանուր ===== */
-  section {
-    padding: 80px 16px;
-    max-width: 900px;
-    margin: 0 auto;
-  }
+    .hero-art-inner {
+      position: absolute;
+      inset: 18px;
+      border: 1px solid rgba(196, 163, 90, 0.45);
+      border-radius: 16px;
+      pointer-events: none;
+      z-index: 2;
+    }
 
-  .section-head {
-    text-align: center;
-    margin-bottom: 52px;
-  }
-  .section-eyebrow {
-    font-size: 9px;
-    letter-spacing: 5px;
-    text-transform: uppercase;
-    color: var(--blush-deep);
-    margin-bottom: 14px;
-    font-weight: 500;
-  }
-  .section-title {
-    font-family: 'Great Vibes', cursive;
-    font-size: clamp(38px, 10vw, 62px);
-    color: var(--sage-deep);
-    margin-bottom: 8px;
-    line-height: 1.1;
-  }
-  .section-sub {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    color: var(--soft);
-    font-size: 17px;
-  }
-  .section-ornament {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 10px;
-    margin-top: 20px;
-  }
-  .section-ornament .line {
-    width: 60px; height: 1px;
-    background: linear-gradient(to right, transparent, var(--gold), transparent);
-  }
-  .section-ornament .dot {
-    width: 4px; height: 4px;
-    background: var(--blush-deep);
-    border-radius: 50%;
-  }
-  .section-ornament .leaf {
-    color: var(--sage);
-    font-size: 13px;
-  }
+    .hero-art-inner::before {
+      content: "";
+      position: absolute;
+      inset: 6px;
+      border: 1px solid rgba(196, 163, 90, 0.2);
+      border-radius: 12px;
+    }
 
-  /* ===== ՀԵՏՀԱՇՎԱՐԿ ===== */
-  .countdown-section {
-    padding: 40px 16px 80px;
-  }
-  .countdown-card {
-    position: relative;
-    max-width: 700px;
-    margin: 0 auto;
-    padding: 44px 24px 40px;
-    background: linear-gradient(165deg, #fffefa 0%, #f9f3e8 100%);
-    border-radius: 24px;
-    border: 1px solid rgba(196,163,90,0.28);
-    box-shadow: var(--shadow);
-    text-align: center;
-    overflow: hidden;
-  }
-  .countdown-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--sage-light), var(--gold), var(--blush), var(--gold), var(--sage-light));
-  }
-  .countdown-card::after {
-    content: "";
-    position: absolute;
-    top: -60px; right: -60px;
-    width: 180px; height: 180px;
-    border-radius: 50%;
-    background: radial-gradient(circle, rgba(232,180,184,0.2) 0%, transparent 65%);
-    pointer-events: none;
-  }
+    .art-corner {
+      position: absolute;
+      width: 30px;
+      height: 30px;
+      color: var(--gold);
+      z-index: 3;
+    }
 
-  .countdown-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: 18px;
-    color: var(--soft);
-    margin-bottom: 26px;
-    position: relative;
-    z-index: 1;
-  }
+    .art-corner svg {
+      width: 100%;
+      height: 100%;
+    }
 
-  .countdown-grid {
-    display: grid;
-    grid-template-columns: repeat(4, 1fr);
-    gap: 10px;
-    position: relative;
-    z-index: 1;
-  }
-  .countdown-item {
-    position: relative;
-    padding: 18px 6px;
-    background: rgba(255,255,255,0.6);
-    border: 1px solid rgba(196,163,90,0.3);
-    border-radius: 14px;
-    backdrop-filter: blur(6px);
-    transition: all 0.3s ease;
-  }
-  .countdown-item:hover {
-    transform: translateY(-3px);
-    border-color: var(--sage);
-    box-shadow: 0 10px 24px rgba(107,125,92,0.15);
-  }
-  .countdown-num {
-    display: block;
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 700;
-    font-size: clamp(26px, 7vw, 44px);
-    line-height: 1;
-    background: linear-gradient(135deg, var(--sage-deep), var(--gold));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 6px;
-    font-variant-numeric: tabular-nums;
-  }
-  .countdown-label {
-    display: block;
-    font-size: 8px;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    color: var(--soft);
-    font-weight: 500;
-  }
+    .art-tl {
+      top: 26px;
+      left: 26px;
+    }
 
-  /* ===== ԾՐԱԳԻՐ (ՔԱՐՏԵՐԻ ՏԵՍՔՈՎ) ===== */
-  .program-grid {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 24px;
-  }
+    .art-tr {
+      top: 26px;
+      right: 26px;
+      transform: scaleX(-1);
+    }
 
-  .program-card {
-    position: relative;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-    padding: 40px 24px 28px;
-    background: linear-gradient(165deg, #fffefa 0%, #f9f3e8 100%);
-    border-radius: 24px;
-    border: 1px solid rgba(196,163,90,0.22);
-    box-shadow: var(--shadow);
-    transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
-    opacity: 0;
-    transform: translateY(40px);
-    overflow: hidden;
-  }
-  .program-card.visible {
-    opacity: 1;
-    transform: translateY(0);
-  }
-  .program-card:hover {
-    transform: translateY(-6px);
-    box-shadow: var(--shadow-hover);
-    border-color: var(--sage);
-  }
-  @media (hover: none) {
-    .program-card:hover { transform: none; }
-  }
+    .art-bl {
+      bottom: 26px;
+      left: 26px;
+      transform: scaleY(-1);
+    }
 
-  /* Վերևի նուրբ գիծ */
-  .program-card::before {
-    content: "";
-    position: absolute;
-    top: 0; left: 0; right: 0;
-    height: 4px;
-    background: linear-gradient(90deg, var(--sage-light), var(--gold), var(--blush), var(--gold), var(--sage-light));
-  }
+    .art-br {
+      bottom: 26px;
+      right: 26px;
+      transform: scale(-1);
+    }
 
-  /* ===== ՄԵԾ ԿԵՆՏՐՈՆԱՅԻՆ ԻԿՈՆԱ ===== */
-  .icon-3d {
-    position: relative;
-    width: 140px;
-    height: 140px;
-    flex-shrink: 0;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    background: #fffdfa;
-    box-shadow:
-      0 14px 30px rgba(107,125,92,0.16),
-      0 6px 12px rgba(196,163,90,0.18),
-      inset 0 0 0 2px rgba(255,255,255,1),
-      inset 0 -6px 12px rgba(196,163,90,0.22);
-    transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
-    border: 1px solid rgba(196,163,90,0.35);
-    margin-bottom: 24px;
-  }
-  
-  .icon-3d::before {
-    content: "";
-    position: absolute;
-    inset: 8px;
-    border-radius: 50%;
-    border: 1px dashed rgba(196,163,90,0.45);
-    pointer-events: none;
-    transition: transform 0.6s ease;
-  }
+    .hero-content {
+      position: relative;
+      z-index: 4;
+      height: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      justify-content: center;
+      text-align: center;
+      padding: 50px 25px;
+    }
 
-  /* SVG իկոնաներ */
-  .icon-3d svg {
-    position: relative;
-    width: 84px;
-    height: 84px;
-    color: var(--ink);
-    z-index: 1;
-    transition: all 0.6s ease;
-  }
+    .hero-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-bottom: 22px;
+    }
 
-  /* Hover էֆեկտ */
-  .program-card:hover .icon-3d {
-    transform: translateY(-4px) scale(1.04);
-    box-shadow:
-      0 20px 40px rgba(107,125,92,0.22),
-      0 8px 18px rgba(196,163,90,0.28),
-      inset 0 0 0 2px rgba(255,255,255,1),
-      inset 0 -6px 12px rgba(196,163,90,0.3);
-    border-color: var(--gold);
-  }
-  .program-card:hover .icon-3d::before {
-    transform: rotate(180deg);
-    border-color: var(--gold);
-  }
-  .program-card:hover .icon-3d svg {
-    color: var(--gold-deep);
-    transform: scale(1.08);
-  }
+    .hero-ornament .line {
+      width: 36px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
 
-  /* ===== ԲՈՎԱՆԴԱԿՈՒԹՅՈՒՆ ===== */
-  .program-content {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-  }
+    .hero-ornament .leaf {
+      color: var(--gold);
+      font-size: 15px;
+    }
 
-  .program-time {
-    display: inline-block;
-    font-family: 'Cormorant Garamond', serif;
-    font-weight: 700;
-    font-size: 22px;
-    letter-spacing: 1px;
-    background: linear-gradient(135deg, var(--sage-deep), var(--gold));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    margin-bottom: 4px;
-  }
-  .program-label {
-    display: inline-block;
-    font-size: 9px;
-    letter-spacing: 3px;
-    text-transform: uppercase;
-    color: var(--blush-deep);
-    margin-bottom: 12px;
-    font-weight: 500;
-  }
+    .hero-pre {
+      font-size: 10px;
+      letter-spacing: 6px;
+      text-transform: uppercase;
+      color: var(--sage-deep);
+      margin-bottom: 26px;
+      font-weight: 500;
+    }
 
-  .program-title {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 28px;
-    font-weight: 600;
-    color: var(--ink);
-    margin-bottom: 8px;
-    letter-spacing: 0.5px;
-  }
-  .program-desc {
-    font-size: 13px;
-    line-height: 1.6;
-    color: var(--soft);
-    margin-bottom: 20px;
-    min-height: 42px;
-  }
+    .hero-names {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(44px, 13vw, 76px);
+      line-height: 1.05;
+      margin-bottom: 4px;
+      background: linear-gradient(135deg, var(--sage-deep) 0%, var(--gold) 50%, var(--sage-deep) 100%);
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      filter: drop-shadow(0 1px 1px rgba(255, 255, 255, 0.8));
+    }
 
-  .program-footer {
-    width: 100%;
-    display: flex;
-    flex-direction: column;
-    gap: 14px;
-    padding-top: 16px;
-    border-top: 1px dashed rgba(196,163,90,0.4);
-    margin-top: auto;
-  }
-  .program-place {
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    gap: 6px;
-    font-size: 12px;
-    color: var(--ink);
-    width: 100%;
-  }
-  .program-place span {
-    overflow: hidden;
-    text-overflow: ellipsis;
-    white-space: nowrap;
-  }
-  .program-place svg {
-    width: 14px; height: 14px;
-    color: var(--blush-deep);
-    flex-shrink: 0;
-  }
+    .hero-amp {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(22px, 5vw, 32px);
+      color: var(--blush-deep);
+      margin: 6px 0;
+      display: block;
+    }
 
-  .map-btn {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    gap: 8px;
-    width: 100%;
-    padding: 13px 20px;
-    background: linear-gradient(135deg, var(--sage-deep), var(--sage));
-    border: none;
-    border-radius: 50px;
-    color: #fff;
-    font-family: 'Montserrat', sans-serif;
-    font-size: 10px;
-    font-weight: 500;
-    letter-spacing: 2px;
-    text-transform: uppercase;
-    text-decoration: none;
-    transition: all 0.4s ease;
-    box-shadow: 0 6px 18px rgba(107,125,92,0.25);
-    cursor: pointer;
-  }
-  .map-btn svg {
-    width: 13px; height: 13px;
-    transition: transform 0.4s ease;
-  }
-  .map-btn:hover, .map-btn:active {
-    background: linear-gradient(135deg, var(--gold), #d4b46e);
-    box-shadow: 0 10px 26px rgba(196,163,90,0.4);
-    transform: translateY(-2px);
-  }
-  .map-btn:hover svg { transform: translateX(3px); }
+    .hero-date {
+      margin-top: 30px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 14px;
+    }
 
-  /* ===== ՀԱՐԳԱՆՔԻ ԽՈՍՔ ===== */
-  .message-wrap {
-    position: relative;
-    text-align: center;
-    padding: 60px 28px;
-    background:
-      radial-gradient(ellipse at top, rgba(232,180,184,0.16) 0%, transparent 55%),
-      radial-gradient(ellipse at bottom, rgba(138,154,123,0.13) 0%, transparent 55%),
-      linear-gradient(135deg, #fffefa, #f9f3e8);
-    border-radius: 24px;
-    border: 1px solid rgba(196,163,90,0.28);
-    margin: 0 auto;
-    max-width: 800px;
-    overflow: hidden;
-    box-shadow: var(--shadow);
-  }
-  .message-wrap::before {
-    content: "";
-    position: absolute;
-    inset: 12px;
-    border: 1px solid rgba(196,163,90,0.18);
-    border-radius: 16px;
-    pointer-events: none;
-  }
+    .hero-date .part {
+      text-align: center;
+    }
 
-  .msg-corner {
-    position: absolute;
-    width: 24px; height: 24px;
-    color: var(--gold);
-  }
-  .msg-corner svg { width: 100%; height: 100%; }
-  .msg-tl { top: 20px; left: 20px; }
-  .msg-tr { top: 20px; right: 20px; transform: scaleX(-1); }
-  .msg-bl { bottom: 20px; left: 20px; transform: scaleY(-1); }
-  .msg-br { bottom: 20px; right: 20px; transform: scale(-1); }
+    .hero-date .num {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 600;
+      font-size: clamp(22px, 5vw, 30px);
+      color: var(--sage-deep);
+      line-height: 1;
+    }
 
-  .msg-quote {
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 64px;
-    color: var(--blush);
-    line-height: 0.5;
-    display: block;
-    margin-bottom: 16px;
-    opacity: 0.7;
-  }
+    .hero-date .lbl {
+      display: block;
+      font-size: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--soft);
+      margin-top: 5px;
+    }
 
-  .message-wrap p {
-    position: relative;
-    font-family: 'Cormorant Garamond', serif;
-    font-style: italic;
-    font-size: clamp(18px, 4.5vw, 24px);
-    line-height: 1.8;
-    color: var(--ink);
-    max-width: 640px;
-    margin: 0 auto 26px;
-    z-index: 1;
-  }
-  .message-signature {
-    position: relative;
-    font-family: 'Great Vibes', cursive;
-    font-size: 36px;
-    color: var(--sage-deep);
-    z-index: 1;
-  }
-  .message-heart {
-    display: block;
-    margin-top: 14px;
-    font-size: 20px;
-    color: var(--blush-deep);
-    z-index: 1;
-    position: relative;
-    animation: heartbeat 1.6s ease-in-out infinite;
-  }
-  @keyframes heartbeat {
-    0%, 100% { transform: scale(1); }
-    50%      { transform: scale(1.15); }
-  }
+    .hero-date .sep {
+      width: 1px;
+      height: 26px;
+      background: linear-gradient(to bottom, transparent, var(--gold), transparent);
+    }
 
-  /* ===== FOOTER ===== */
-  footer {
-    text-align: center;
-    padding: 50px 20px 60px;
-    font-family: 'Cormorant Garamond', serif;
-    font-size: 14px;
-    letter-spacing: 3px;
-    color: var(--soft);
-    border-top: 1px solid rgba(196,163,90,0.22);
-    margin-top: 40px;
-    position: relative;
-  }
-  footer::before {
-    content: "✦";
-    position: absolute;
-    top: -12px;
-    left: 50%;
-    transform: translateX(-50%);
-    background: var(--cream);
-    padding: 0 16px;
-    color: var(--gold);
-    font-size: 15px;
-  }
-  footer .names {
-    font-family: 'Great Vibes', cursive;
-    font-size: 34px;
-    background: linear-gradient(135deg, var(--sage-deep), var(--gold));
-    -webkit-background-clip: text;
-    background-clip: text;
-    -webkit-text-fill-color: transparent;
-    letter-spacing: 1px;
-    margin-bottom: 10px;
-  }
+    .scroll-hint {
+      position: absolute;
+      bottom: 22px;
+      left: 50%;
+      transform: rotate(90deg) translateX(-50%);
+      font-size: 50px;
+      letter-spacing: 4px;
+      color: var(--sage-deep);
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      gap: 6px;
+      animation: bounce 2.2s infinite;
+      z-index: 5;
+      cursor: pointer;
+    }
 
-  /* ===== MOBILE ===== */
-  @media (max-width: 640px) {
-    section { padding: 60px 14px; }
+    @keyframes bounce {
 
-    .hero-art { border-radius: 20px; }
-    .hero-art-inner { inset: 12px; border-radius: 14px; }
-    .art-corner { width: 22px; height: 22px; }
-    .art-tl, .art-tr { top: 20px; }
-    .art-bl, .art-br { bottom: 20px; }
-    .art-tl, .art-bl { left: 20px; }
-    .art-tr, .art-br { right: 20px; }
-    .hero-content { padding: 40px 20px; }
-    .hero-leaves svg { width: 80px; height: 80px; }
+      0%,
+      100% {
+        transform: translateX(-50%) translateY(0) rotate(90deg);
+        opacity: 0.65;
+      }
 
-    .countdown-card { padding: 34px 16px 30px; border-radius: 20px; }
-    .countdown-grid { gap: 6px; }
-    .countdown-item { padding: 14px 4px; border-radius: 11px; }
-    .countdown-label { font-size: 7px; letter-spacing: 1.5px; }
+      50% {
+        transform: translateX(-50%) translateY(7px) rotate(90deg);
+        opacity: 1;
+      }
+    }
 
-    /* Ծրագիրը մեկ սյունակով հեռախոսի համար */
+    /* ===== Ընդհանուր ===== */
+    section {
+      padding: 80px 25px;
+      max-width: 900px;
+      margin: 0 auto;
+    }
+
+    .section-head {
+      text-align: center;
+      margin-bottom: 52px;
+    }
+
+    .section-eyebrow {
+      font-size: 9px;
+      letter-spacing: 5px;
+      text-transform: uppercase;
+      color: var(--blush-deep);
+      margin-bottom: 14px;
+      font-weight: 500;
+    }
+
+    .section-title {
+      font-family: 'Great Vibes', cursive;
+      font-size: clamp(38px, 10vw, 62px);
+      color: var(--sage-deep);
+      margin-bottom: 8px;
+      line-height: 1.1;
+    }
+
+    .section-sub {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      color: var(--soft);
+      font-size: 17px;
+    }
+
+    .section-ornament {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 10px;
+      margin-top: 20px;
+    }
+
+    .section-ornament .line {
+      width: 60px;
+      height: 1px;
+      background: linear-gradient(to right, transparent, var(--gold), transparent);
+    }
+
+    .section-ornament .dot {
+      width: 4px;
+      height: 4px;
+      background: var(--blush-deep);
+      border-radius: 50%;
+    }
+
+    .section-ornament .leaf {
+      color: var(--sage);
+      font-size: 13px;
+    }
+
+    /* ===== ՀԵՏՀԱՇՎԱՐԿ ===== */
+    .countdown-section {
+      padding: 40px 25px 80px;
+    }
+
+    .countdown-card {
+      position: relative;
+      max-width: 700px;
+      margin: 0 auto;
+      padding: 44px 25px 40px;
+      background: linear-gradient(165deg, #fffefa 0%, #f9f3e8 100%);
+      border-radius: 24px;
+      border: 1px solid rgba(196, 163, 90, 0.28);
+      box-shadow: var(--shadow);
+      text-align: center;
+      overflow: hidden;
+    }
+
+    .countdown-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--sage-light), var(--gold), var(--blush), var(--gold), var(--sage-light));
+    }
+
+    .countdown-card::after {
+      content: "";
+      position: absolute;
+      top: -60px;
+      right: -60px;
+      width: 180px;
+      height: 180px;
+      border-radius: 50%;
+      background: radial-gradient(circle, rgba(232, 180, 184, 0.2) 0%, transparent 65%);
+      pointer-events: none;
+    }
+
+    .countdown-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: 18px;
+      color: var(--soft);
+      margin-bottom: 26px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .countdown-grid {
+      display: grid;
+      grid-template-columns: repeat(4, 1fr);
+      gap: 10px;
+      position: relative;
+      z-index: 1;
+    }
+
+    .countdown-item {
+      position: relative;
+      padding: 18px 6px;
+      background: rgba(255, 255, 255, 0.6);
+      border: 1px solid rgba(196, 163, 90, 0.3);
+      border-radius: 14px;
+      backdrop-filter: blur(6px);
+      transition: all 0.3s ease;
+    }
+
+    .countdown-item:hover {
+      transform: translateY(-3px);
+      border-color: var(--sage);
+      box-shadow: 0 10px 24px rgba(107, 125, 92, 0.15);
+    }
+
+    .countdown-num {
+      display: block;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: clamp(26px, 7vw, 44px);
+      line-height: 1;
+      background: linear-gradient(135deg, var(--sage-deep), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 6px;
+      font-variant-numeric: tabular-nums;
+    }
+
+    .countdown-label {
+      display: block;
+      font-size: 8px;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      color: var(--soft);
+      font-weight: 500;
+    }
+
+    /* ===== ԾՐԱԳԻՐ (ՔԱՐՏԵՐԻ ՏԵՍՔՈՎ) ===== */
     .program-grid {
-      grid-template-columns: 1fr;
-      gap: 20px;
+      display: grid;
+      grid-template-columns: repeat(2, 1fr);
+      gap: 24px;
     }
+
     .program-card {
-      padding: 36px 22px 26px;
-      border-radius: 22px;
+      position: relative;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      text-align: center;
+      padding: 40px 24px 28px;
+      background: linear-gradient(165deg, #fffefa 0%, #f9f3e8 100%);
+      border-radius: 24px;
+      border: 1px solid rgba(196, 163, 90, 0.22);
+      box-shadow: var(--shadow);
+      transition: all 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+      opacity: 0;
+      transform: translateY(40px);
+      overflow: hidden;
     }
+
+    .program-card.visible {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    .program-card:hover {
+      transform: translateY(-6px);
+      box-shadow: var(--shadow-hover);
+      border-color: var(--sage);
+    }
+
+    @media (hover: none) {
+      .program-card:hover {
+        transform: none;
+      }
+    }
+
+    /* Վերևի նուրբ գիծ */
+    .program-card::before {
+      content: "";
+      position: absolute;
+      top: 0;
+      left: 0;
+      right: 0;
+      height: 4px;
+      background: linear-gradient(90deg, var(--sage-light), var(--gold), var(--blush), var(--gold), var(--sage-light));
+    }
+
+    /* ===== ՄԵԾ ԿԵՆՏՐՈՆԱՅԻՆ ԻԿՈՆԱ ===== */
     .icon-3d {
-      width: 130px;
-      height: 130px;
+      position: relative;
+      width: 140px;
+      height: 140px;
+      flex-shrink: 0;
+      border-radius: 50%;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      background: #fffdfa;
+      box-shadow:
+        0 14px 30px rgba(107, 125, 92, 0.16),
+        0 6px 12px rgba(196, 163, 90, 0.18),
+        inset 0 0 0 2px rgba(255, 255, 255, 1),
+        inset 0 -6px 12px rgba(196, 163, 90, 0.22);
+      transition: all 0.6s cubic-bezier(0.4, 0, 0.2, 1);
+      border: 1px solid rgba(196, 163, 90, 0.35);
+      margin-bottom: 24px;
     }
+
+    .icon-3d::before {
+      content: "";
+      position: absolute;
+      inset: 8px;
+      border-radius: 50%;
+      border: 1px dashed rgba(196, 163, 90, 0.45);
+      pointer-events: none;
+      transition: transform 0.6s ease;
+    }
+
+    /* SVG իկոնաներ */
     .icon-3d svg {
-      width: 76px;
-      height: 76px;
+      position: relative;
+      width: 84px;
+      height: 84px;
+      color: var(--ink);
+      z-index: 1;
+      transition: all 0.6s ease;
     }
 
-    .message-wrap { padding: 50px 22px; border-radius: 20px; }
-    .msg-corner { width: 20px; height: 20px; }
-    .msg-tl, .msg-tr { top: 14px; }
-    .msg-bl, .msg-br { bottom: 14px; }
-    .msg-tl, .msg-bl { left: 14px; }
-    .msg-tr, .msg-br { right: 14px; }
-  }
-
-  @media (prefers-reduced-motion: reduce) {
-    *, *::before, *::after {
-      animation-duration: 0.01ms !important;
-      transition-duration: 0.01ms !important;
+    /* Hover էֆեկտ */
+    .program-card:hover .icon-3d {
+      transform: translateY(-4px) scale(1.04);
+      box-shadow:
+        0 20px 40px rgba(107, 125, 92, 0.22),
+        0 8px 18px rgba(196, 163, 90, 0.28),
+        inset 0 0 0 2px rgba(255, 255, 255, 1),
+        inset 0 -6px 12px rgba(196, 163, 90, 0.3);
+      border-color: var(--gold);
     }
-  }
-</style>
+
+    .program-card:hover .icon-3d::before {
+      transform: rotate(180deg);
+      border-color: var(--gold);
+    }
+
+    .program-card:hover .icon-3d svg {
+      color: var(--gold-deep);
+      transform: scale(1.08);
+    }
+
+    /* ===== ԲՈՎԱՆԴԱԿՈՒԹՅՈՒՆ ===== */
+    .program-content {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+    }
+
+    .program-time {
+      display: inline-block;
+      font-family: 'Cormorant Garamond', serif;
+      font-weight: 700;
+      font-size: 22px;
+      letter-spacing: 1px;
+      background: linear-gradient(135deg, var(--sage-deep), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      margin-bottom: 4px;
+    }
+
+    .program-label {
+      display: inline-block;
+      font-size: 9px;
+      letter-spacing: 3px;
+      text-transform: uppercase;
+      color: var(--blush-deep);
+      margin-bottom: 12px;
+      font-weight: 500;
+    }
+
+    .program-title {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 28px;
+      font-weight: 600;
+      color: var(--ink);
+      margin-bottom: 8px;
+      letter-spacing: 0.5px;
+    }
+
+    .program-desc {
+      font-size: 13px;
+      line-height: 1.6;
+      color: var(--soft);
+      margin-bottom: 20px;
+      min-height: 42px;
+    }
+
+    /* Նշում Եկեղեցու քարտի համար */
+    .program-note {
+      position: relative;
+      display: block;
+      margin: -6px auto 18px;
+      padding: 8px 16px;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-weight: 700;
+      font-size: 16px;
+      line-height: 1.5;
+      color: var(--sage-deep);
+      background: linear-gradient(to right, transparent, rgba(196, 163, 90, 0.08), transparent);
+      border-top: 1px solid rgba(196, 163, 90, 0.3);
+      border-bottom: 1px solid rgba(196, 163, 90, 0.3);
+      max-width: 90%;
+      text-align: center;
+    }
+
+    .program-note::before {
+      content: "❦";
+      display: block;
+      color: var(--gold);
+      font-size: 16px;
+      margin-bottom: 4px;
+    }
+
+    .program-footer {
+      width: 100%;
+      display: flex;
+      flex-direction: column;
+      gap: 14px;
+      padding-top: 16px;
+      border-top: 1px dashed rgba(196, 163, 90, 0.4);
+      margin-top: auto;
+    }
+
+    .program-place {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      gap: 6px;
+      font-size: 12px;
+      color: var(--ink);
+      width: 100%;
+    }
+
+    .program-place span {
+      overflow: hidden;
+      text-overflow: ellipsis;
+      white-space: nowrap;
+    }
+
+    .program-place svg {
+      width: 14px;
+      height: 14px;
+      color: var(--blush-deep);
+      flex-shrink: 0;
+    }
+
+    .map-btn {
+      display: inline-flex;
+      align-items: center;
+      justify-content: center;
+      gap: 8px;
+      width: 100%;
+      padding: 13px 20px;
+      background: linear-gradient(135deg, var(--sage-deep), var(--sage));
+      border: none;
+      border-radius: 50px;
+      color: #fff;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 10px;
+      font-weight: 500;
+      letter-spacing: 2px;
+      text-transform: uppercase;
+      text-decoration: none;
+      transition: all 0.4s ease;
+      box-shadow: 0 6px 18px rgba(107, 125, 92, 0.25);
+      cursor: pointer;
+    }
+
+    .map-btn svg {
+      width: 13px;
+      height: 13px;
+      transition: transform 0.4s ease;
+    }
+
+    .map-btn:hover,
+    .map-btn:active {
+      background: linear-gradient(135deg, var(--gold), #d4b46e);
+      box-shadow: 0 10px 26px rgba(196, 163, 90, 0.4);
+      transform: translateY(-2px);
+    }
+
+    .map-btn:hover svg {
+      transform: translateX(3px);
+    }
+
+    /* ===== ՀԱՐԳԱՆՔԻ ԽՈՍՔ ===== */
+    .message-wrap {
+      position: relative;
+      text-align: center;
+      padding: 60px 28px;
+      background:
+        radial-gradient(ellipse at top, rgba(232, 180, 184, 0.16) 0%, transparent 55%),
+        radial-gradient(ellipse at bottom, rgba(138, 154, 123, 0.13) 0%, transparent 55%),
+        linear-gradient(135deg, #fffefa, #f9f3e8);
+      border-radius: 24px;
+      border: 1px solid rgba(196, 163, 90, 0.28);
+      margin: 0 auto;
+      max-width: 800px;
+      overflow: hidden;
+      box-shadow: var(--shadow);
+    }
+
+    .message-wrap::before {
+      content: "";
+      position: absolute;
+      inset: 12px;
+      border: 1px solid rgba(196, 163, 90, 0.18);
+      border-radius: 16px;
+      pointer-events: none;
+    }
+
+    .msg-corner {
+      position: absolute;
+      width: 24px;
+      height: 24px;
+      color: var(--gold);
+    }
+
+    .msg-corner svg {
+      width: 100%;
+      height: 100%;
+    }
+
+    .msg-tl {
+      top: 20px;
+      left: 20px;
+    }
+
+    .msg-tr {
+      top: 20px;
+      right: 20px;
+      transform: scaleX(-1);
+    }
+
+    .msg-bl {
+      bottom: 20px;
+      left: 20px;
+      transform: scaleY(-1);
+    }
+
+    .msg-br {
+      bottom: 20px;
+      right: 20px;
+      transform: scale(-1);
+    }
+
+    .msg-quote {
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 64px;
+      color: var(--blush);
+      line-height: 0.5;
+      display: block;
+      margin-bottom: 16px;
+      opacity: 0.7;
+    }
+
+    .message-wrap p {
+      position: relative;
+      font-family: 'Cormorant Garamond', serif;
+      font-style: italic;
+      font-size: clamp(18px, 4.5vw, 24px);
+      line-height: 1.8;
+      color: var(--ink);
+      max-width: 640px;
+      margin: 0 auto 26px;
+      z-index: 1;
+    }
+
+    .message-signature {
+      position: relative;
+      font-family: 'Great Vibes', cursive;
+      font-size: 36px;
+      color: var(--sage-deep);
+      z-index: 1;
+    }
+
+    .message-heart {
+      display: block;
+      margin-top: 14px;
+      font-size: 20px;
+      color: var(--blush-deep);
+      z-index: 1;
+      position: relative;
+      animation: heartbeat 1.6s ease-in-out infinite;
+    }
+
+    @keyframes heartbeat {
+
+      0%,
+      100% {
+        transform: scale(1);
+      }
+
+      50% {
+        transform: scale(1.15);
+      }
+    }
+
+    /* ===== FOOTER ===== */
+    footer {
+      text-align: center;
+      padding: 50px 20px 60px;
+      font-family: 'Cormorant Garamond', serif;
+      font-size: 20px;
+      letter-spacing: 3px;
+      color: var(--soft);
+      border-top: 1px solid rgba(196, 163, 90, 0.22);
+      margin-top: 40px;
+      position: relative;
+    }
+
+    footer::before {
+      content: "✦";
+      position: absolute;
+      top: -12px;
+      left: 50%;
+      transform: translateX(-50%);
+      background: var(--cream);
+      padding: 0 16px;
+      color: var(--gold);
+      font-size: 15px;
+    }
+
+    footer .names {
+      font-family: 'Great Vibes', cursive;
+      font-size: 34px;
+      background: linear-gradient(135deg, var(--sage-deep), var(--gold));
+      -webkit-background-clip: text;
+      background-clip: text;
+      -webkit-text-fill-color: transparent;
+      letter-spacing: 1px;
+      margin-bottom: 10px;
+    }
+
+    /* ===== MOBILE ===== */
+    @media (max-width: 640px) {
+      section {
+        padding: 60px 25px;
+      }
+
+      .hero-art {
+        border-radius: 20px;
+      }
+
+      .hero-art-inner {
+        inset: 12px;
+        border-radius: 14px;
+      }
+
+      .art-corner {
+        width: 22px;
+        height: 22px;
+      }
+
+      .art-tl,
+      .art-tr {
+        top: 20px;
+      }
+
+      .art-bl,
+      .art-br {
+        bottom: 20px;
+      }
+
+      .art-tl,
+      .art-bl {
+        left: 20px;
+      }
+
+      .art-tr,
+      .art-br {
+        right: 20px;
+      }
+
+      .hero-content {
+        padding: 40px 20px;
+      }
+
+      .hero-leaves svg {
+        width: 80px;
+        height: 80px;
+      }
+
+      .countdown-card {
+        padding: 34px 25px 30px;
+        border-radius: 20px;
+      }
+
+      .countdown-grid {
+        gap: 6px;
+      }
+
+      .countdown-item {
+        padding: 14px 4px;
+        border-radius: 11px;
+      }
+
+      .countdown-label {
+        font-size: 7px;
+        letter-spacing: 1.5px;
+      }
+
+      /* Ծրագիրը մեկ սյունակով հեռախոսի համար */
+      .program-grid {
+        grid-template-columns: 1fr;
+        gap: 20px;
+      }
+
+      .program-card {
+        padding: 36px 22px 26px;
+        border-radius: 22px;
+      }
+
+      .icon-3d {
+        width: 130px;
+        height: 130px;
+      }
+
+      .icon-3d svg {
+        width: 76px;
+        height: 76px;
+      }
+
+      .message-wrap {
+        padding: 50px 22px;
+        border-radius: 20px;
+      }
+
+      .msg-corner {
+        width: 20px;
+        height: 20px;
+      }
+
+      .msg-tl,
+      .msg-tr {
+        top: 14px;
+      }
+
+      .msg-bl,
+      .msg-br {
+        bottom: 14px;
+      }
+
+      .msg-tl,
+      .msg-bl {
+        left: 14px;
+      }
+
+      .msg-tr,
+      .msg-br {
+        right: 14px;
+      }
+    }
+
+    @media (prefers-reduced-motion: reduce) {
+
+      *,
+      *::before,
+      *::after {
+        animation-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+      }
+    }
+  </style>
 </head>
+
 <body>
 
   <header class="hero">
     <div class="hero-art">
       <span class="art-corner art-tl">
         <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
-          <path d="M2 2 L2 14 M2 2 L14 2"/>
-          <circle cx="2" cy="2" r="1.5" fill="currentColor"/>
+          <path d="M2 2 L2 14 M2 2 L14 2" />
+          <circle cx="2" cy="2" r="1.5" fill="currentColor" />
         </svg>
       </span>
       <span class="art-corner art-tr">
         <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
-          <path d="M2 2 L2 14 M2 2 L14 2"/>
-          <circle cx="2" cy="2" r="1.5" fill="currentColor"/>
+          <path d="M2 2 L2 14 M2 2 L14 2" />
+          <circle cx="2" cy="2" r="1.5" fill="currentColor" />
         </svg>
       </span>
       <span class="art-corner art-bl">
         <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
-          <path d="M2 2 L2 14 M2 2 L14 2"/>
-          <circle cx="2" cy="2" r="1.5" fill="currentColor"/>
+          <path d="M2 2 L2 14 M2 2 L14 2" />
+          <circle cx="2" cy="2" r="1.5" fill="currentColor" />
         </svg>
       </span>
       <span class="art-corner art-br">
         <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
-          <path d="M2 2 L2 14 M2 2 L14 2"/>
-          <circle cx="2" cy="2" r="1.5" fill="currentColor"/>
+          <path d="M2 2 L2 14 M2 2 L14 2" />
+          <circle cx="2" cy="2" r="1.5" fill="currentColor" />
         </svg>
       </span>
 
       <div class="hero-art-inner"></div>
 
       <div class="hero-leaves">
-        <svg class="leaf-tl" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
-          <path d="M20 80 Q 20 40, 50 20 Q 80 40, 80 80" opacity="0.6"/>
-          <path d="M50 20 Q 50 50, 50 80" opacity="0.5"/>
-          <path d="M35 35 Q 45 45, 50 55" opacity="0.4"/>
-          <path d="M65 35 Q 55 45, 50 55" opacity="0.4"/>
-          <circle cx="50" cy="18" r="2.5" fill="currentColor" opacity="0.7"/>
+        <svg class="leaf-tl" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"
+          stroke-linecap="round">
+          <path d="M20 80 Q 20 40, 50 20 Q 80 40, 80 80" opacity="0.6" />
+          <path d="M50 20 Q 50 50, 50 80" opacity="0.5" />
+          <path d="M35 35 Q 45 45, 50 55" opacity="0.4" />
+          <path d="M65 35 Q 55 45, 50 55" opacity="0.4" />
+          <circle cx="50" cy="18" r="2.5" fill="currentColor" opacity="0.7" />
         </svg>
-        <svg class="leaf-br" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1" stroke-linecap="round">
-          <path d="M20 80 Q 20 40, 50 20 Q 80 40, 80 80" opacity="0.6"/>
-          <path d="M50 20 Q 50 50, 50 80" opacity="0.5"/>
-          <path d="M35 35 Q 45 45, 50 55" opacity="0.4"/>
-          <path d="M65 35 Q 55 45, 50 55" opacity="0.4"/>
-          <circle cx="50" cy="18" r="2.5" fill="currentColor" opacity="0.7"/>
+        <svg class="leaf-br" viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="1"
+          stroke-linecap="round">
+          <path d="M20 80 Q 20 40, 50 20 Q 80 40, 80 80" opacity="0.6" />
+          <path d="M50 20 Q 50 50, 50 80" opacity="0.5" />
+          <path d="M35 35 Q 45 45, 50 55" opacity="0.4" />
+          <path d="M65 35 Q 55 45, 50 55" opacity="0.4" />
+          <circle cx="50" cy="18" r="2.5" fill="currentColor" opacity="0.7" />
         </svg>
       </div>
 
@@ -865,7 +1130,7 @@
           </div>
         </div>
 
-        <div class="scroll-hint">Ծրագիր</div>
+        <div class="scroll-hint" id="scroll-hint">&#10148;</div>
       </div>
     </div>
   </header>
@@ -910,11 +1175,12 @@
 
       <div class="program-card">
         <div class="icon-3d">
-          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
             <path d="M10 50 L50 15 L90 50" />
             <path d="M15 50 L15 90 L85 90 L85 50" />
             <path d="M40 90 L40 65 Q50 55 60 65 L60 90" />
-            <path d="M50 60 L50 90" opacity="0.3"/>
+            <path d="M50 60 L50 90" opacity="0.3" />
             <path d="M25 65 L35 65 L35 75 L25 75 Z" />
             <path d="M65 65 L75 65 L75 75 L65 75 Z" />
             <path d="M22 65 Q30 55 38 65" />
@@ -928,17 +1194,15 @@
           </div>
           <div class="program-title message-signature">Փեսայի Տուն</div>
           <div class="program-footer">
-            <div class="program-place">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-             
-            </div>
             <a class="map-btn" href="https://yandex.com/maps/-/CXCWQC49" target="_blank" rel="noopener">
-              Քարտեզ
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M13 6l6 6-6 6"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg> Քարտեզ
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
           </div>
@@ -947,7 +1211,8 @@
 
       <div class="program-card">
         <div class="icon-3d">
-          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
             <path d="M10 50 L50 15 L90 50" />
             <path d="M15 50 L15 90 L85 90 L85 50" />
             <path d="M50 85 C 35 70, 35 55, 50 60 C 65 55, 65 70, 50 85 Z" />
@@ -961,16 +1226,16 @@
           </div>
           <div class="program-title message-signature">Հարսի Տուն</div>
           <div class="program-footer">
-            <div class="program-place">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
+
             <a class="map-btn" href="https://yandex.com/navi/-/CXCWUGyK" target="_blank" rel="noopener">
-              Քարտեզ
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M13 6l6 6-6 6"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg> Քարտեզ
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
           </div>
@@ -979,7 +1244,8 @@
 
       <div class="program-card">
         <div class="icon-3d">
-          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
             <path d="M35 40 L50 10 L65 40" />
             <path d="M35 40 L65 40" />
             <path d="M40 40 L40 50 L60 50 L60 40" />
@@ -999,17 +1265,21 @@
             <span class="program-time message-signature">15:00</span>
           </div>
           <div class="program-title message-signature">Սուրբ Գայանե եկեղեցի</div>
+
+          <div class="program-note">
+            Պսակադրությունից հետո հյուրերին հրավիրում ենք փեսայի տուն՝ ավանդական արարողության համար։
+          </div>
+
           <div class="program-footer">
-            <div class="program-place">
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z"/>
-                <circle cx="12" cy="10" r="3"/>
-              </svg>
-            </div>
             <a class="map-btn" href="https://yandex.com/maps/-/CTs46Hpg" target="_blank" rel="noopener">
-              Քարտեզ
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M13 6l6 6-6 6"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg> Քարտեզ
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
           </div>
@@ -1018,7 +1288,8 @@
 
       <div class="program-card">
         <div class="icon-3d">
-          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round" stroke-linejoin="round">
+          <svg viewBox="0 0 100 100" fill="none" stroke="currentColor" stroke-width="2.5" stroke-linecap="round"
+            stroke-linejoin="round">
             <path d="M10 50 L50 20 L90 50" />
             <path d="M20 50 L20 90 L80 90 L80 50" />
             <path d="M30 90 L30 60 Q35 55 40 60 L40 90" />
@@ -1034,12 +1305,17 @@
           </div>
           <div class="program-title message-signature">«ԷԼԻՆԱՐ» ՌԵՍՏՈՐԱՆ</div>
           <div class="program-footer">
-            
-            
+
+
             <a class="map-btn" href="https://yandex.com/maps/-/CXCWYF6h" target="_blank" rel="noopener">
-              Քարտեզ
-              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round" stroke-linejoin="round">
-                <path d="M5 12h14M13 6l6 6-6 6"/>
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.8" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M21 10c0 7-9 13-9 13s-9-6-9-13a9 9 0 0 1 18 0z" />
+                <circle cx="12" cy="10" r="3" />
+              </svg> Քարտեզ
+              <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.2" stroke-linecap="round"
+                stroke-linejoin="round">
+                <path d="M5 12h14M13 6l6 6-6 6" />
               </svg>
             </a>
           </div>
@@ -1053,26 +1329,26 @@
     <div class="message-wrap">
       <span class="msg-corner msg-tl">
         <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
-          <path d="M2 2 L2 14 M2 2 L14 2"/>
-          <circle cx="2" cy="2" r="1.5" fill="currentColor"/>
+          <path d="M2 2 L2 14 M2 2 L14 2" />
+          <circle cx="2" cy="2" r="1.5" fill="currentColor" />
         </svg>
       </span>
       <span class="msg-corner msg-tr">
         <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
-          <path d="M2 2 L2 14 M2 2 L14 2"/>
-          <circle cx="2" cy="2" r="1.5" fill="currentColor"/>
+          <path d="M2 2 L2 14 M2 2 L14 2" />
+          <circle cx="2" cy="2" r="1.5" fill="currentColor" />
         </svg>
       </span>
       <span class="msg-corner msg-bl">
         <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
-          <path d="M2 2 L2 14 M2 2 L14 2"/>
-          <circle cx="2" cy="2" r="1.5" fill="currentColor"/>
+          <path d="M2 2 L2 14 M2 2 L14 2" />
+          <circle cx="2" cy="2" r="1.5" fill="currentColor" />
         </svg>
       </span>
       <span class="msg-corner msg-br">
         <svg viewBox="0 0 40 40" fill="none" stroke="currentColor" stroke-width="1.2">
-          <path d="M2 2 L2 14 M2 2 L14 2"/>
-          <circle cx="2" cy="2" r="1.5" fill="currentColor"/>
+          <path d="M2 2 L2 14 M2 2 L14 2" />
+          <circle cx="2" cy="2" r="1.5" fill="currentColor" />
         </svg>
       </span>
 
@@ -1089,49 +1365,59 @@
     28 · 11 · 2026
   </footer>
 
-<script>
-  (function countdown() {
-    const targetDate = new Date('2026-11-28T09:00:00').getTime();
-    const daysEl  = document.getElementById('cd-days');
-    const hoursEl = document.getElementById('cd-hours');
-    const minsEl  = document.getElementById('cd-mins');
-    const secsEl  = document.getElementById('cd-secs');
+  <script>
+    (function countdown() {
+      const targetDate = new Date('2026-11-28T09:00:00').getTime();
+      const daysEl = document.getElementById('cd-days');
+      const hoursEl = document.getElementById('cd-hours');
+      const minsEl = document.getElementById('cd-mins');
+      const secsEl = document.getElementById('cd-secs');
 
-    function pad(n) { return String(n).padStart(2, '0'); }
+      function pad(n) { return String(n).padStart(2, '0'); }
 
-    function update() {
-      const diff = targetDate - Date.now();
-      if (diff <= 0) {
-        daysEl.textContent = hoursEl.textContent = minsEl.textContent = secsEl.textContent = '00';
+      function update() {
+        const diff = targetDate - Date.now();
+        if (diff <= 0) {
+          daysEl.textContent = hoursEl.textContent = minsEl.textContent = secsEl.textContent = '00';
+          return;
+        }
+        daysEl.textContent = pad(Math.floor(diff / 86400000));
+        hoursEl.textContent = pad(Math.floor((diff % 86400000) / 3600000));
+        minsEl.textContent = pad(Math.floor((diff % 3600000) / 60000));
+        secsEl.textContent = pad(Math.floor((diff % 60000) / 1000));
+      }
+      update();
+      setInterval(update, 1000);
+    })();
+
+    /* ===== Քարտերի հայտնվելը ===== */
+    (function revealCards() {
+      const cards = document.querySelectorAll('.program-card');
+      if (!('IntersectionObserver' in window)) {
+        cards.forEach(c => c.classList.add('visible'));
         return;
       }
-      daysEl.textContent  = pad(Math.floor(diff / 86400000));
-      hoursEl.textContent = pad(Math.floor((diff % 86400000) / 3600000));
-      minsEl.textContent  = pad(Math.floor((diff % 3600000) / 60000));
-      secsEl.textContent  = pad(Math.floor((diff % 60000) / 1000));
-    }
-    update();
-    setInterval(update, 1000);
-  })();
+      const observer = new IntersectionObserver((entries) => {
+        entries.forEach((entry, i) => {
+          if (entry.isIntersecting) {
+            setTimeout(() => entry.target.classList.add('visible'), i * 150);
+            observer.unobserve(entry.target);
+          }
+        });
+      }, { threshold: 0.15 });
+      cards.forEach(card => observer.observe(card));
+    })();
 
-  /* ===== Քարտերի հայտնվելը ===== */
-  (function revealCards() {
-    const cards = document.querySelectorAll('.program-card');
-    if (!('IntersectionObserver' in window)) {
-      cards.forEach(c => c.classList.add('visible'));
-      return;
-    }
-    const observer = new IntersectionObserver((entries) => {
-      entries.forEach((entry, i) => {
-        if (entry.isIntersecting) {
-          setTimeout(() => entry.target.classList.add('visible'), i * 150);
-          observer.unobserve(entry.target);
-        }
-      });
-    }, { threshold: 0.15 });
-    cards.forEach(card => observer.observe(card));
-  })();
-</script>
+    scrollHint = document.getElementById('scroll-hint');
+    scrollHint.addEventListener('click', () => {
+      const programSection = document.getElementById('program');
+      if (programSection) {
+        programSection.scrollIntoView({ behavior: 'smooth' });
+      }
+    });
+
+  </script>
 
 </body>
+
 </html>
